@@ -1,5 +1,7 @@
-const { compile } = require('svelte');
 const JSAsset = require('parcel-bundler/src/assets/JSAsset');
+
+// TODO: Implement integration with BuckleScript
+const compile = id => id;
 
 class BuckleScriptAsset extends JSAsset {
   parse(code) {
