@@ -1,17 +1,17 @@
 const { compile } = require('svelte');
 const JSAsset = require('parcel-bundler/src/assets/JSAsset');
 
-class SvelteAsset extends JSAsset {
+class BuckleScriptAsset extends JSAsset {
   parse(code) {
-    const svelteOptions = {
+    const options = {
       generate: 'dom',
       format: 'cjs'
     };
 
-    const compiled = compile(code, svelteOptions);
+    const compiled = compile(code, options);
     this.contents = compiled.code;
     super.parse(this.contents);
   }
 }
 
-module.exports = SvelteAsset;
+module.exports = BuckleScriptAsset;

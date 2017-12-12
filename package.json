@@ -1,23 +1,22 @@
 {
-  "name": "parcel-plugin-svelte",
-  "version": "0.0.3",
-  "description": "Parcel plugin to support svelte",
+  "name": "parcel-plugin-bucklescript",
+  "version": "0.0.1",
+  "description": "Parcel plugin to support bucklescript",
   "main": "index.js",
   "scripts": {
     "example": "cd example && npm start"
   },
   "keywords": [
     "parcel",
-    "svelte"
+    "bucklescript"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/DeMoorJasper/parcel-plugin-svelte.git"
+    "url": "git://github.com/jihchi/parcel-plugin-bucklescript.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Archie Lee <achi@987.tw>",
+  "license": "MIT",
   "dependencies": {
-    "parcel-bundler": "git://github.com/parcel-bundler/parcel.git",
-    "svelte": "^1.45.0"
+    "parcel-bundler": "git://github.com/parcel-bundler/parcel.git"
   }
 }
