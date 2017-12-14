@@ -1,6 +1,6 @@
 {
   "name": "parcel-plugin-bucklescript",
-  "version": "0.0.2-alpha",
+  "version": "0.0.2-alpha.0",
   "description": "Parcel plugin to support bucklescript",
   "main": "index.js",
   "scripts": {
