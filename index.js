@@ -1,3 +1,4 @@
-module.exports = function (bundler) {
-    bundler.addAssetType('bs', require.resolve('./BuckleScriptAsset'));
+module.exports = function(bundler) {
+  bundler.addAssetType('re', require.resolve('./BuckleScriptAsset'));
+  bundler.addAssetType('ml', require.resolve('./BuckleScriptAsset'));
 };

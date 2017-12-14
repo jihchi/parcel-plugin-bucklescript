@@ -1,14 +1,5 @@
-const Demo = require('./Demo.svelte');
+const Demo = require('./Demo.re');
 
-function initComponent() {
-  const demo = new Demo({
-    target: document.getElementById('demo'),
-    data: { name: 'world' }
-  });
-
-  demo.set({ name: 'everybody' });
-}
-
-document.addEventListener("DOMContentLoaded", function (event) {
-  initComponent();
+document.addEventListener('DOMContentLoaded', function(event) {
+  console.log('Demo', Demo);
 });

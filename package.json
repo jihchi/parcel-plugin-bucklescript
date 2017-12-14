@@ -1,6 +1,6 @@
 {
   "name": "parcel-plugin-bucklescript",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha",
   "description": "Parcel plugin to support bucklescript",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,8 @@
   "author": "Archie Lee <achi@987.tw>",
   "license": "MIT",
   "dependencies": {
-    "parcel-bundler": "git://github.com/parcel-bundler/parcel.git"
+    "bsb-js": "^1.0.1",
+    "parcel-bundler": "git://github.com/parcel-bundler/parcel.git",
+    "read-bsconfig": "^1.0.3"
   }
 }

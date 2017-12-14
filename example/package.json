@@ -1,16 +1,20 @@
 {
-  "name": "parcel-plugin-svelte",
-  "version": "1.0.0",
-  "description": "",
+  "name": "parcel-plugin-bucklescript",
+  "version": "2.0.0",
+  "description": "Example of parcel-plugin-bucklescript",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html --no-cache"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Archie Lee <achi@987.tw>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jihchi/parcel-plugin-bucklescript.git"
+  },
   "dependencies": {
     "parcel-bundler": "^1.0.3",
-    "parcel-plugin-svelte": "file:.."
+    "parcel-plugin-bucklescript": "file:.."
   }
 }
