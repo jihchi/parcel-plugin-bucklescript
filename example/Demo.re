@@ -1,1 +1,1 @@
-Js.log("This is BuckleScript speaking")
+let echo = (input: string): string => "Echo: " ++ input;

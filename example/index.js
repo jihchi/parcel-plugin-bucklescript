@@ -1,5 +1,7 @@
 const Demo = require('./Demo.re');
 
 document.addEventListener('DOMContentLoaded', function(event) {
-  console.log('Demo', Demo);
+  document
+    .querySelector('#demo')
+    .appendChild(document.createTextNode(Demo.echo('This is calling from JS')));
 });

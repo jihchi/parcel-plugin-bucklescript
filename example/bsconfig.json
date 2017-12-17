@@ -1,0 +1,13 @@
+{
+  "name": "parcel-plugin-bucklescript-example",
+  "sources": {
+    "dir": ".",
+    "subdirs": []
+  },
+  "bs-dependencies": [],
+  "reason": {},
+  "bsc-flags": [
+    "-bs-super-errors"
+  ],
+  "refmt": 3
+}
