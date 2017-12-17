@@ -3,8 +3,12 @@
   "version": "0.0.2-alpha.0",
   "description": "Parcel plugin to support bucklescript",
   "main": "index.js",
+  "jest": {
+    "transform": {}
+  },
   "scripts": {
-    "example": "cd example && npm start"
+    "example": "cd example && npm start",
+    "test": "jest"
   },
   "keywords": [
     "parcel",
@@ -18,7 +22,10 @@
   "license": "MIT",
   "dependencies": {
     "bsb-js": "^1.0.1",
-    "parcel-bundler": "git://github.com/parcel-bundler/parcel.git",
-    "read-bsconfig": "^1.0.3"
+    "read-bsconfig": "^1.0.3",
+    "parcel-bundler": "git://github.com/parcel-bundler/parcel.git"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1"
   }
 }

@@ -1,9 +1,13 @@
+/**
+ * Original implement copied from https://github.com/reasonml-community/bs-loader/blob/master/packages/bs-loader/index.js
+ */
+const path = require('path');
 const JSAsset = require('parcel-bundler/src/assets/JSAsset');
 const { readBsConfig } = require('read-bsconfig');
 const { compileFile } = require('bsb-js');
 
-// TODO: Implement integration with BuckleScript
-const compile = id => id;
+const outputDir = 'lib';
+const fileNameRegex = /\.(ml|re)$/;
 
 async function getBsConfigModuleOptions(buildDir) {
   return await readBsConfig(buildDir).then(bsconfig => {
@@ -15,7 +19,7 @@ async function getBsConfigModuleOptions(buildDir) {
     const suffix = typeof bsSuffix === 'string' ? bsSuffix : '.js';
 
     if (!bsconfig['package-specs'] || !bsconfig['package-specs'].length) {
-      const options: Options = {
+      const options = {
         moduleDir: 'js',
         inSource: false,
         suffix,
@@ -24,12 +28,12 @@ async function getBsConfigModuleOptions(buildDir) {
     }
 
     const moduleSpec = bsconfig['package-specs'][0];
-    const moduleDir: BsModuleFormat =
+    const moduleDir =
       typeof moduleSpec === 'string' ? moduleSpec : moduleSpec.module;
     const inSource =
       typeof moduleSpec === 'string' ? false : moduleSpec['in-source'];
 
-    const options: Options = { moduleDir, inSource, suffix };
+    const options = { moduleDir, inSource, suffix };
     return options;
   });
 }
@@ -49,20 +53,25 @@ class BuckleScriptAsset extends JSAsset {
   async parse(code) {
     const buildDir = process.cwd();
     const bsconfig = await getBsConfigModuleOptions(buildDir);
-    const moduleDir = bsconfig.moduleDir;
-    const bsSuffix = bsconfig.suffix;
-    const inSourceBuild = options.inSource || bsconfig.inSource || false;
-    const resourcePath = '.';
+    const { moduleDir, suffix, inSource = false } = bsconfig;
     const compiledFilePath = jsFilePath(
       buildDir,
       moduleDir,
-      resourcePath,
-      inSourceBuild,
-      bsSuffix
+      this.name,
+      inSource,
+      suffix
     );
-    const compiled = await compileFile(buildDir, moduleDir, compiledFilePath);
+    const compiled = await compileFile(
+      buildDir,
+      moduleDir,
+      compiledFilePath
+    );
+    const { src, warnings, errors } = compiled;
 
-    this.contents = compiled.code;
+    if (warnings.length) console.warn('warnings', warnings.join('\n'));
+    if (errors.length) throw new Error(errors.join('\n'));
+
+    this.contents = src;
 
     return await super.parse(this.contents);
   }

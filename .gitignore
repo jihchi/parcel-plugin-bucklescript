@@ -1,3 +1,15 @@
-node_modules
-.vscode
+# dependencies
+/node_modules
 package-lock.json
+
+# VSCode
+/.vscode
+
+# bucklescript
+.merlin
+/lib
+/types
+
+# parcel
+/.cache
+/dist
